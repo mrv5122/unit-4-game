@@ -25,12 +25,17 @@ window.onload = function() {
        alert("You win!");
        playerScore = 0;
        randomNumber = Math.floor(Math.random()*19+101);
+       whiteNum;
+       redNum;
+       blueNum;
+       yellowNum;
     }
     function youLose() {
         Losses++;
         alert("Loser!! xD");
         playerScore = 0;
         randomNumber = Math.floor(Math.random()*19+101);
+        
     }
     
     //give each jewel a value betweeen 1-12 for the game
@@ -73,6 +78,9 @@ window.onload = function() {
         if (playerScore === randomNumber) {
             youWin();
         }
+        else if (playerscore > randomNumber) {
+            youLose();
+        }
     });
     $("#blue").on("click", function(){
         playerScore =playerScore + blueNum;
@@ -81,6 +89,9 @@ window.onload = function() {
         if (playerScore === randomNumber) {
             youWin();
         }
+        else if (playerscore > randomNumber) {
+            youLose();
+        }
     });
     $("#yellow").on("click", function(){
         playerScore =playerScore + yellowNum;
@@ -88,6 +99,9 @@ window.onload = function() {
         $("#totalScore").text(playerScore);
         if (playerScore === randomNumber) {
             youWin();
+        }
+        else if (playerscore > randomNumber) {
+            youLose();
         }
     });
 };

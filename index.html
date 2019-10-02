@@ -6,62 +6,76 @@
 	<meta charset="UTF-8">
 	<title>Crystal Collector</title>
 	<pnk rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <pnk rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="assets/javascript/game.js"></script>
-	<script src="assets/javascript/jquery-3.4.1.js"></script>
+		<pnk rel="stylesheet" type="text/css" href="assets/css/style.css">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<script src="assets/javascript/game.js"></script>
+			<script src="assets/javascript/jquery-3.4.1.js"></script>
 </head>
+
 <body>
 	<div class="header">
 		<h1>Crystal Collector</h1>
 	</div>
 	<br>
 	<br>
-<div class="container">
-	<div class="row" id="instructions">
-		<h3>Here are the rules to play:</h3>
-	</div>
-	<div class="row" id="rules">
-		<div class="col-md-6">
-		<ol>
-			<p>You'll be given a random number at the start of the game.<span>"Number To Get"</span></p>
-			<p>There are four crystals below:</p>
-			<p>Cpcking on a gem will add a specific amount of points to your total score.</p>
-			<p>You win the game by matching your total score to the random number displayed.</p>
-			<p>You lose the game if your total score goes above the random number.</p>
-			<p>The value of each gem is hidden from you until you cpck on it.</p>
-			<p>Each time when the game starts, the game will change the values of each gem.</p>
-		</ol>
+	<div class="container">
+		<div class="row" id="instructions">
+			<h3>Here are the rules to play:</h3>
 		</div>
-		<div class="col-md-6" class="attributes"></div>
-	
-</div>
-	<div class="col-lg-6" id="numberToGet">
-		<h2>Number To Get:
-			<span id= "randomNumber"></span>
-		</h2>
-	</div>
-	<div class="playerScore">
-		<h2>Your score is:
-			<span id="totalScore"></span>
-		</h2>
-	</div>
-	<br>
-	<div class="winsAndLosses">
-		<h2>Wins:
-			<span id= "Wins"></span>
-			</br>
-			Losses: 
-			<span id= "Losses"></span>
-		</h2>
-	</div>
+		<div class="row" id="rules">
+			<div class="col-md-6">
+					<p>You'll be given a random number at the start of the game, this is the "Number To Get".
+					<br>
+					There are four crystals below....
+					<br>
+					Clicking on a gem will add a specific amount of points to your total score.
+					<br>
+					You win the game by matching your total score to the random number displayed.
+					<br>
+					You lose the game if your total score goes above the random number.
+					<br>
+					The value of each gem is hidden from you until you cpck on it.
+					<br>
+					Each time when the game starts, the game will change the values of each gem. </p>
+			</div>
+		</div>
+			<div class="col-md-6" class="attributes">
+				<div id="numberToGet">
+					<h2>Number To Get:
+						<span id="randomNumber"></span>
+					</h2>
+				</div>
+				<div class="playerScore">
+					<h2>Your score is:
+						<span id="totalScore"></span>
+					</h2>
+				</div>
+				<br>
+				<div class="winsAndLosses">
+					<h2>Wins:
+						<span id="Wins"></span>
+						</br>
+						Losses:
+						<span id="Losses"></span>
+					</h2>
+				</div>
+			</div>
 
-	<div class="row" id="gems">
-		<img src="assets/images/diamond.jpg" class=gemImage id="white" alt="White Gem">
-		<img src="assets/images/ruby.jpg" class=gemImage id="red" alt="Red Gem">
-		<img src="assets/images/sapphire.jpg" class=gemImage id= "blue" alt="Blue Gem">
-		<img src="assets/images/yellow-gem.jpg" class=gemImage id= "yellow" alt="Yellow Gem">
-	</div>
-	
+		<div class="row" id="gems">
+			<div class="col-md-3">
+					<img src="assets/images/diamond.jpg" class="img-thumbnail" id="white">
+				</div>
+			<div class="col-md-3">
+					<img src="assets/images/ruby.jpg" class="img-thumbnail" id="red">
+				</div>
+			<div class="col-md-3">
+					<img src="assets/images/sapphire.jpg" class="img-thumbnail" id="blue">
+				</div>
+			<div class="col-md-3">
+					<img src="assets/images/yellow-gem.jpg" class="img-thumbnail" id="yellow">
+				</div>
+			</div>
+			</div>
 </body>
+
 </html>
