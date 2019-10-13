@@ -5,8 +5,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Crystal Collector</title>
-	<pnk rel="stylesheet" type="text/css" href="assets/css/reset.css">
-		<pnk rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<script src="assets/javascript/game.js"></script>
 			<script src="assets/javascript/jquery-3.4.1.js"></script>
@@ -20,38 +20,40 @@
 	<br>
 	<div class="container">
 		<div class="row" id="instructions">
-			<h3>Here are the rules to play:</h3>
+			<h3>How to play:</h3> <br>
 		</div>
 		<div class="row" id="rules">
-			<div class="col-md-6">
-					<p>You'll be given a random number at the start of the game, this is the "Number To Get".
+			<div class="col-md-4" id="ruleList">
+					<p>- You'll be given a random number at the start of the game, this is the "Number To Get".</p>
 					<br>
-					There are four crystals below....
+					<p>- There are 4 gems below. Each gem has a set value.</p>
 					<br>
-					Clicking on a gem will add a specific amount of points to your total score.
+					<p>- Clicking on a gem will add its value to your total score.</p>
+					
+					<p>- You win the game by matching your score to the Number to Get.</p>
+					
+					<p>- You lose the game if your total score goes above the Number to Get.</p>
+					
+					<p>- The value of each gem is hidden from you until you click on it.</p>
 					<br>
-					You win the game by matching your total score to the random number displayed.
-					<br>
-					You lose the game if your total score goes above the random number.
-					<br>
-					The value of each gem is hidden from you until you cpck on it.
-					<br>
-					Each time when the game starts, the game will change the values of each gem. </p>
+					<p>- Each time the game restarts, the gems will be assigned new values. </p>
 			</div>
-		</div>
-			<div class="col-md-6" class="attributes">
+<br>
+			<div class="col-md-4" id="attributes">
 				<div id="numberToGet">
 					<h2>Number To Get:
 						<span id="randomNumber"></span>
 					</h2>
 				</div>
 				<div class="playerScore">
-					<h2>Your score is:
+					<h3>Your score is:
 						<span id="totalScore"></span>
-					</h2>
+					</h3>
 				</div>
 				<br>
-				<div class="winsAndLosses">
+			</div>
+			<div class="col-md-4">
+				<div id="winsAndLosses">
 					<h2>Wins:
 						<span id="Wins"></span>
 						</br>
@@ -60,6 +62,7 @@
 					</h2>
 				</div>
 			</div>
+		</div>
 
 		<div class="row" id="gems">
 			<div class="col-md-3">
