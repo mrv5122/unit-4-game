@@ -1,4 +1,9 @@
-h1 {
+body {
+    background: url(../images/shiny.jpg);
+    background-blend-mode: hue;
+}
+
+.header {
     text-align: center;
     font-size: 50px;
     margin: 10px;
@@ -6,16 +11,18 @@ h1 {
     color: blueviolet;
 }
 #instructions  {
-    text-align: inherit;
+    text-align: center;
     font-size: 30px;
     margin: 5px;
     padding: 5px;
     color: blueviolet;
 }
-#rules {
+#ruleList {
     font-size: 20px;
     padding: 2px;
+    text-align: center;
 }
+
 p {
     margin-bottom: 5px;
 }
@@ -24,6 +31,7 @@ p {
 /* Number to get and player score */
 #attributes {
     color: blueviolet;
+    text-align: center;
 }
 /* gem image styling */
 #white {

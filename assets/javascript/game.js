@@ -1,6 +1,15 @@
 //computer generates a random number between 19-120
 window.onload = function() {
-    
+    gemValGenerator();
+
+          //assign function to update player values on HTML
+          $("#Wins").text(Wins);
+
+          $("#Losses").text(Losses);
+      
+          $("#totalScore").html("<span>" + playerScore + "</span>");
+
+
     var randomNumber = Math.floor(Math.random()*19+101);
     
     //random number is assigned to location in html
@@ -12,102 +21,51 @@ window.onload = function() {
     var Losses = 0;
     var playerScore = 0;
    
-       //assign function to update player values on HTML
-       $("#Wins").text(Wins);
+ var gemValues = [$("#white"), $("#red"), $("#blue"), $("#yellow")];
 
-       $("#Losses").text(Losses);
+ function gemValGenerator() {
+     for (var i = 0; i < 4; i++) {
+         var gem = Math.floor(Math.random() * 11 + 1); }
+         gemValues.push(gem);
+         console.log(
+             "white =" + gemValues[0],
+             "red =" + gemValues[1],
+             "blue =" + gemValues[2],
+             "yellow =" + gemValues[3]
+         )
+     }
+ 
+$("#white").on("click", function() {
+    playerScore = playerScore + gemValues[0];
+});
+
+$("#red").on("click", function() {
+    playerScore = playerScore + gemValues[1];
+});
+
+$("#blue").on("click", function() {
+    playerScore = playerScore + gemValues[2];
+});
+
+$("#yellow").on("click", function() {
+    playerScore = playerScore + gemValues[3];
+});
+  //set win and loss functions to avoid repetition, include reset
    
-       $("#totalScore").html("<span>" + playerScore + "</span>");
-
-    //set win and loss functions to avoid repetition, include reset
-   function youWin() {
-       Wins++;
-       alert("You win!");
-       playerScore = 0;
-       randomNumber = Math.floor(Math.random()*19+101);
-       whiteNum;
-       redNum;
-       blueNum;
-       yellowNum;
+  function youWin() {
+    if (playerScore === randomNumber) {
+        alert("You Win!")
+        Wins++;
+    } else if (playerScore > randomNumber) {
+        youLose();
     }
-    function youLose() {
-        Losses++;
-        alert("Loser!! xD");
-        playerScore = 0;
-        randomNumber = Math.floor(Math.random()*19+101);
-        
-    }
-    
-    //give each jewel a value betweeen 1-12 for the game
-    var whiteNum = Math.floor(Math.random()*11+1);
-    console.log("White gem value:" + whiteNum);
+    resetGame();
+ }
 
-    var redNum = Math.floor(Math.random()*11+1);
-    console.log("Red gem value:" + redNum);
-
-    var blueNum = Math.floor(Math.random()*11+1);
-    console.log("Blue gem value:" + blueNum);
-
-    var yellowNum = Math.floor(Math.random()*11+1);
-    console.log("Yellow gem value:" + yellowNum);
-
-   //assign function to update player values on HTML
-   $("#Wins").html("<span>" + Wins + "</span>");
-
-   $("#Losses").html("<span>" + Losses + "</span>");
-
-   $("#totalScore").html("<span>" + playerScore + "</span>");
-   
-    //set up clicks to give player points for clicking on gems
-    $("#white").on("click", function(){
-        playerScore = playerScore + whiteNum;
-        console.log("New playerScore= " + playerScore);
-        $("#totalScore").text(playerScore);
-
-        if (playerScore === randomNumber) {
-            youWin();
-        }
-        else if (playerscore > randomNumber) {
-            youLose();
-        }
-    });
-    $("#red").on("click", function(){
-        playerScore = playerScore + redNum;
-        console.log("New playerScore= " + playerScore);
-        $("#totalScore").text(playerScore);
-        if (playerScore === randomNumber) {
-            youWin();
-        }
-        else if (playerscore > randomNumber) {
-            youLose();
-        }
-    });
-    $("#blue").on("click", function(){
-        playerScore =playerScore + blueNum;
-        console.log("New playerScore= " + playerScore);
-        $("#totalScore").text(playerScore);
-        if (playerScore === randomNumber) {
-            youWin();
-        }
-        else if (playerscore > randomNumber) {
-            youLose();
-        }
-    });
-    $("#yellow").on("click", function(){
-        playerScore =playerScore + yellowNum;
-        console.log("New playerScore= " + playerScore);
-        $("#totalScore").text(playerScore);
-        if (playerScore === randomNumber) {
-            youWin();
-        }
-        else if (playerscore > randomNumber) {
-            youLose();
-        }
-    });
-};
-
- // //reset function
-    // function resetGame() {
-    //     randomNumber = Math.floor(Math.random()*19+101);
-    //     console.log("New number to guess:" + randomNumber);
-    //     $('#randomNumber').text(randomNumber);  }
+ function youLose() {
+     Losses++;
+     alert("Loser!! xD");
+     playerScore = 0;
+     randomNumber = Math.floor(Math.random()*19+101);
+ }
+}
