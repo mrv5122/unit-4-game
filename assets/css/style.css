@@ -34,26 +34,41 @@ p {
     text-align: center;
 }
 /* gem image styling */
+
+#gems {
+    outline: aquamarine, 10px;
+}
+
 #white {
     height: 150px;
     width: 150px;
     float: left;
+    padding: 5px, 10px, 5px, 20px;
 }
 
 #red {
     height: 150px;
     width: 150px;
     float: left;
+    padding: 5px, 10px, 5px, 20px;
 }
 
 #blue {
     height: 150px;
     width: 150px;
     float: left;
+    padding: 5px, 10px, 5px, 20px;
 }
 
 #yellow {
     height: 150px;
     width: 150px;
     float: left;
+    padding: 5px, 10px, 5px, 20px;
+}
+
+#winsAndLosses {
+    color: blueviolet;
+    text-align: center;
+    margin-bottom: 20px;
 }
