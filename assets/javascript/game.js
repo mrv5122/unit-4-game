@@ -1,71 +1,85 @@
-//computer generates a random number between 19-120
-window.onload = function() {
-    gemValGenerator();
+//script loads upon DOM loading
+$(document).ready(function() {
 
-          //assign function to update player values on HTML
-          $("#Wins").text(Wins);
-
-          $("#Losses").text(Losses);
-      
-          $("#totalScore").html("<span>" + playerScore + "</span>");
-
-
+    //computer generates random number for player to guess
     var randomNumber = Math.floor(Math.random()*19+101);
-    
-    //random number is assigned to location in html
-    $("#randomNumber").html("<span>" + randomNumber + "</span>");
-    console.log("Random number:" + randomNumber);
-    
-    //assign variables to user score
-    var Wins = 0;
-    var Losses = 0;
+    //append randomNumber to html
+    $("#randomNumber").text(randomNumber);
+    console.log(randomNumber);
+
+    //VARIABLES TO RECORD WINS & LOSSES, player score
+    var wins = 0;
+    var losses = 0;
     var playerScore = 0;
-   
- var gemValues = [$("#white"), $("#red"), $("#blue"), $("#yellow")];
 
- function gemValGenerator() {
-     for (var i = 0; i < 4; i++) {
-         var gem = Math.floor(Math.random() * 11 + 1); }
-         gemValues.push(gem);
-         console.log(
-             "white =" + gemValues[0],
-             "red =" + gemValues[1],
-             "blue =" + gemValues[2],
-             "yellow =" + gemValues[3]
-         )
-     }
- 
-$("#white").on("click", function() {
-    playerScore = playerScore + gemValues[0];
-});
+// APPEND wins & losses to index
+    $("#Wins").text("Wins: " + wins);
+    $("#Losses").text("Losses: " + losses);
 
-$("#red").on("click", function() {
-    playerScore = playerScore + gemValues[1];
-});
 
-$("#blue").on("click", function() {
-    playerScore = playerScore + gemValues[2];
-});
+    //array to hold gem values
+    var gemValues = [];
+    function gemWorth() {
+        for (var i = 0; i < 4; i++) {
+            //generate random gem value
+            var gemNumber =  Math.floor(Math.random() * 11 + 1)
+            //push random gem values to gemValues array
+            gemValues.push(gemNumber);
+        }
+    };
+        gemWorth();
+    console.log(gemValues);
 
-$("#yellow").on("click", function() {
-    playerScore = playerScore + gemValues[3];
-});
-  //set win and loss functions to avoid repetition, include reset
-   
-  function youWin() {
-    if (playerScore === randomNumber) {
-        alert("You Win!")
-        Wins++;
-    } else if (playerScore > randomNumber) {
-        youLose();
+    //reset game function
+    function resetGame() {
+        randomNumber = Math.floor(Math.random()*19+101);
+        $("#randomNumber").text(randomNumber);
+        gemValues = [];
+        gemWorth();
+        playerScore = 0;
+        $("#totalScore").text(playerScore);
+        console.log("new gem values: " + gemValues);
+    };
+
+    //win game/ lose function
+    function winOrLose() {
+        if (playerScore === randomNumber) {
+        wins++;
+        $("#Wins").text(wins);
+        alert("YOU WON!");
+        resetGame();
+        }
+        else if (playerScore > randomNumber) {
+        losses++;
+        $("#Losses").text(losses);
+        alert("LOSER");
+        resetGame();
+        }
     }
-    resetGame();
- }
 
- function youLose() {
-     Losses++;
-     alert("Loser!! xD");
-     playerScore = 0;
-     randomNumber = Math.floor(Math.random()*19+101);
- }
-}
+   //function for gem clicks
+   $("#white").on("click", function() {
+       playerScore = playerScore + gemValues[0];
+    $("#totalScore").text(playerScore);
+    winOrLose();
+   })
+
+   $("#red").on("click", function() {
+    playerScore = playerScore + gemValues[1];
+    $("#totalScore").text(playerScore);
+    winOrLose();
+    })
+
+    $("#blue").on("click", function() {
+        playerScore = playerScore + gemValues[2];
+     $("#totalScore").text(playerScore);
+     winOrLose();
+    })
+
+    $("#yellow").on("click", function() {
+        playerScore = playerScore + gemValues[3];
+     $("#totalScore").text(playerScore);
+     winOrLose();
+    })
+
+})
