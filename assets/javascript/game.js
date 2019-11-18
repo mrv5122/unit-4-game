@@ -13,8 +13,9 @@ $(document).ready(function() {
     var playerScore = 0;
 
 // APPEND wins & losses to index
-    $("#Wins").text("Wins: " + wins);
-    $("#Losses").text("Losses: " + losses);
+
+$("#Wins").text("Wins: ");
+$("#Losses").text("Losses: ");
 
 
     //array to hold gem values
@@ -45,14 +46,14 @@ $(document).ready(function() {
     function winOrLose() {
         if (playerScore === randomNumber) {
         wins++;
-        $("#Wins").text(wins);
         alert("YOU WON!");
+        $("#Wins").append(wins);
         resetGame();
         }
         else if (playerScore > randomNumber) {
         losses++;
-        $("#Losses").text(losses);
         alert("LOSER");
+        $("#Losses").append(losses);
         resetGame();
         }
     }
